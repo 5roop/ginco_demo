@@ -61,3 +61,37 @@ Items of the list in `paragraphs` have the following fields:
 | `keep`      | boolean, human annotated tag whether or not the paragraph should be kept | only present in suitable paragraphs |
 
 
+
+## Sample data instance
+
+```
+{'id': '3949',
+ 'url': 'http://www.pomurje.si/aktualno/sport/zimska-liga-malega-nogometa/',
+ 'crawled': '2014',
+ 'hard': False,
+ 'paragraphs': [{'text': 'Šport', 'duplicate': False, 'keep': True},
+  {'text': 'Zimska liga malega nogometa sobota, 12.02.2011',
+   'duplicate': False,
+   'keep': True},
+  {'text': 'avtor: Tonček Gider', 'duplicate': False, 'keep': True},
+  {'text': "V 7. krogu zimske lige v malem nogometu v Križevcih pri Ljutomeru je v prvi ligi vodilni 100 plus iz Križevec izgubil s tretjo ekipo na lestvici Rock'n roll iz Križevec z rezultatom 1:2, druga na lestvici Top Finedika iz Križevec je bila poražena z ekipo Bar Milene iz Ključarovec z rezultatom 7:8. V drugi križevski ligi je vodilni Cafe del Mar iz Vučje vasi premagal Montažo Vrbnjak iz Stare Nove vasi z rezultatom 3:2.",
+   'duplicate': False,
+   'keep': True},
+  {'text': 'oglasno sporočilo', 'duplicate': False, 'keep': True},
+  {'text': 'Ocena', 'duplicate': False, 'keep': True},
+  {'text': 'Komentiraj Za komentiranje ali ocenjevanje moraš biti registriran in prijavljen uporabnik. Registriraj se!',
+   'duplicate': True,
+   'keep': False}],
+ 'primary_level_1': 'News/Reporting',
+ 'primary_level_2': 'News/Reporting',
+ 'primary_level_3': 'News/Reporting',
+ 'secondary_level_1': '',
+ 'secondary_level_2': '',
+ 'secondary_level_3': '',
+ 'tertiary_level_1': '',
+ 'tertiary_level_2': '',
+ 'tertiary_level_3': '',
+ 'split': 'test',
+ 'domain': 'www.pomurje.si',
+}
+ ```
