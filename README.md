@@ -28,9 +28,15 @@ Each file is a json packaged list of documents. Documents in the `suitable.json`
 | `crawled`           | string, crawl year                                                      |                                                                                                                    |
 | `hard`              | boolean, human annotated, whether the document was hard to label        |                                                                                                                    |
 | `paragraphs`        | list of dictionaries, containing paragraphs and their metadata          |                                                                                                                    |
-| `primary_level_N`   | string, human annotated primary label                                   | `N` ∈ {1,2,3} indicates label downsampling extent, 1 being not at all and 3 being downcast from 24 labels to 12    |
-| `secondary_level_N` | string, human annotated secondary label                                 | see above                                                                                                          |
-| `tertiary_level_N`  | string, human annotated primary label                                   | see above                                                                                                          |
+| `primary_level_1`   | string, human annotated primary label                                   | original primary label                                                                                             |
+| `secondary_level_1` | string, human annotated secondary label                                 | original secondary label                                                                                           |
+| `tertiary_level_1`  | string, human annotated tertiary label                                  | original tertiary label                                                                                            |
+| `primary_level_2`   | string, primary label after first downcasting                           | 21 labels in label set, basis for stratified train:dev:test split                                                  |
+| `secondary_level_2` | string, secondary label after first downcasting                         | 21 labels in label set                                                                                             |
+| `tertiary_level_2`  | string, tertiary label after first downcasting                          | 21 labels in label set                                                                                             |
+| `primary_level_3`   | string, primary label after second downcasting                          | 12 labels in label set                                                                                             |
+| `secondary_level_3` | string, secondary label after second downcasting                        | 12 labels in label set                                                                                             |
+| `tertiary_level_3`  | string, tertiary label after second downcasting                         | 12 labels in label set                                                                                             |
 | `split`             | string, whether the document belongs to *train*, *dev*, or *test* split | 60:20:20 split, stratified by primary_level_2, with documents with the same domain strictly kept in the same split |
 | `domain`            | string, domain from which the document was scrapped                     | parsed from `url` field                                                                                            |
 
@@ -100,12 +106,12 @@ Items of the list in `paragraphs` have the following fields:
 
  `primary_level_1`, `secondary_level_1`, and `tertiary_level_1` labels consist of the original labels (24 labels). Some categories had less than 5 instances and they were relabeled into `Other`, and we record this labeling in fields  `primary_level_2`, `secondary_level_2`, and `tertiary_level_2`. Another downsampling was used to further reduce the label set to 12 labels, saved in fields `primary_level_3`, `secondary_level_3`, and `tertiary_level_3`.
 
- For the first downsampling (level 1 to level 2) we used the following mapping:
+ For the first downcasting (level 1 to level 2) we used the following mapping:
  ```
  {"Script/Drama":"Other", "Lyrical":"Other","FAQ":"Other"}
  ```
 
- And the second downsampling (level 2 to level 3) uses the mapping:
+ And the second downcasting (level 2 to level 3) uses the mapping:
  ```
  {"Recipe":"Instruction", "Research Article":"Information/Explanation", "Review":"Opinion/Argumentation", "Promotion of Services":"Promotion", "Promotion of a Product":"Promotion", "Invitation":"Promotion", "Correspondence":"Other", "Prose":"Other", "Call":"Other"}
  ```
