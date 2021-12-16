@@ -4,12 +4,7 @@ Using GInCo to train a simpletransformers model
 
 In `demo.ipynb` we demonstrate how to load the GInCo dataset, train a `simpletransformers` model and evaluate it on test data. 
 
-*Work in progress.* 
 
-Ideas for improvement:
-* Once the dataset is published: do we download it first and then use load it? Alternative: use pandas to read it directly from web.
-* Add citation information, link to the paper, ...
-* After proper dataset publication possibly prepare a HugginFace dataset.
 
 # Dataset description - GINCO - Genre IdeNtification COrpus
 
@@ -116,3 +111,7 @@ Items of the list in `paragraphs` have the following fields:
  {"Recipe":"Instruction", "Research Article":"Information/Explanation", "Review":"Opinion/Argumentation", "Promotion of Services":"Promotion", "Promotion of a Product":"Promotion", "Invitation":"Promotion", "Correspondence":"Other", "Prose":"Other", "Call":"Other"}
  ```
 
+
+Ideas for improvement:
+* Add citation information, link to the paper, ...
+* After proper dataset publication, possibly prepare a HugginFace dataset.
